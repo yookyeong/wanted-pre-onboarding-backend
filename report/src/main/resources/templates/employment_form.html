@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html  lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <form  th:object="${employmentForm}" method="post">
+       
+        <div>
+            <label for="subject" class="form-label">제목</label>
+            <input type="text" name="subject" id="subject" class="form-control">
+        </div>
+        <div >
+            <label for="subject" class="form-label">채용포지션 </label>
+            <input type="text" name="em_position" id="em_position" class="form-control">
+        </div>
+         <div >
+            <label for="subject" class="form-label">채용 기술 </label>
+            <input type="text" name="em_tech" id="em_tech" class="form-control">
+        </div>
+         <div >
+            <label for="subject" class="form-label">연봉  </label>
+            <input type="number" name="sal" id="sal" class="form-control">
+        </div>
+        <div >
+            <label for="content" class="form-label">내용</label>
+            <textarea name="content" id="content" class="form-control" rows="10">
+			</textarea>
+		</div>
+			 <input type="submit" value="저장하기" class="btn btn-primary my-2">
+	</form>
+</body>
+
+</html>

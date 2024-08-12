@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html  lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>채용공고 목록</h2>
+<table>
+    <thead>
+        <tr>
+            <th>제목</th>
+            <th>작성일시</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="employment : ${employmentList}">
+            <td><a th:href="@{|detail/${employment.num}|}" th:text="${employment.subject}"></a></td>
+            <td th:text="${employment.createdate}"></td>
+        </tr>
+    </tbody>
+</table>
+<a th:href="@{/create}" class="btn btn-primary">채용공고등록</a>
+
+</body>
+</html>
