@@ -43,24 +43,24 @@ public class EmploymentController {
 		return "employment_detail"; //html반환 
 	}
 	
-	@GetMapping("/create")
+	@GetMapping("/create") //등록하기 클릭시에 폼 불러오기.
 	public String employmentCreate(EmploymentForm employmentForm) {
 		return "employment_form";
 		
 	}
 	
-	@PostMapping("/create")
+	@PostMapping("/create") // 불러온폼에 데이터랑 매칭시키는 객체 넣어주기. 
 	public String employmentCreate(@Valid EmploymentForm employmentForm,BindingResult bindingResult) {
 		
-		this.employmentService.create(employmentForm.getSubject(), employmentForm.getContent(), employmentForm.getEm_posion(), employmentForm.getEm_tech(), employmentForm.getSal());
-		return "redirect:/list";
+		this.employmentService.create(employmentForm.getSubject(), employmentForm.getContent(), employmentForm.getEm_position(), employmentForm.getEm_tech(), employmentForm.getSal());
+		return "redirect:/list"; //생성성공시 list 호춯.
 	}
 	
 	
-	@GetMapping("/modify/{num}")
+	@GetMapping("/modify/{num}") //id값인 num값으로 호출하기
 	public String employmentModify(EmploymentForm employmentForm, BindingResult bindingResult, @PathVariable("num") Integer num) {
 		Employment employment = this.employmentService.getEmployment(num);
-		this.employmentService.modify(employment, employment.getSubject(), employmentForm.getContent(), employmentForm.getEm_posion(), employmentForm.getEm_tech(), employmentForm.getSal());
+		this.employmentService.modify(employment, employment.getSubject(), employmentForm.getContent(), employmentForm.getEm_position(), employmentForm.getEm_tech(), employmentForm.getSal());
 		return "redirect:/detail/{num}";
 	}
 	

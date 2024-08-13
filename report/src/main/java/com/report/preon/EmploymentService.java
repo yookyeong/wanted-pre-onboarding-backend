@@ -34,7 +34,7 @@ public class EmploymentService {
 		Employment em = new Employment(); //초기화 
 		em.setSubject(subject);
 		em.setContent(content);
-		em.setEm_posion(em_postion);
+		em.setEm_position(em_postion);
 		em.setEm_tech(em_tech);
 		em.setSal(sal);
 		em.setCreatedate(LocalDateTime.now());
@@ -45,10 +45,10 @@ public class EmploymentService {
 		
 		employment.setSubject(subject);
 		employment.setContent(contetn);
-		employment.setEm_posion(em_position);
+		employment.setEm_position(em_position);
 		employment.setEm_tech(em_tech);
 		employment.setSal(sal);
-		employment.setCreatedate(LocalDateTime.now());
+		employment.setModifydate(LocalDateTime.now()); //수정시간으로 넣었어야 했는데 생성시간 넣어서 오류난듯?
 		this.employmentRepository.save(employment);
 	}
 	public void delete (Employment employment) {

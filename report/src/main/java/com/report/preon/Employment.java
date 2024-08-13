@@ -28,7 +28,7 @@ public class Employment {
 	private String com_id; //회사 아이디 
 	
 	@Column
-	private String em_posion; //채용포지션 
+	private String em_position; //채용포지션 
 	
 	@Column
 	private Integer sal; //연봉 

@@ -16,7 +16,7 @@
     </thead>
     <tbody>
         <tr th:each="employment : ${employmentList}">
-            <td><a th:href="@{|detail/${employment.num}|}" th:text="${employment.subject}"></a></td>
+            <td><a th:href="@{|/detail/${employment.num}|}" th:text="${employment.subject}"></a></td>
             <td th:text="${employment.createdate}"></td>
         </tr>
     </tbody>
