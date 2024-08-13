@@ -33,16 +33,13 @@
 	<td>[[${employment.createdate}]]</td>
 	</tr>
 	
-
+	</table>
 <!--<h1 th:text="${employment.subject}"></h1>
 <div class="container my-3" th:text="$employment.content}"></div>  -->
 
+<div>	   
+    <a th:href="@{|/modify/${employment.num}|}" th:text="수정"></a>
 
-
-</table>
-<div> 
-	<a th:herf="@{|/modify/${employment.num}|}"  class="btn btn-primary"> 수정 
-	</a>	   
     <a href="javascript:void(0);" th:data-uri="@{|/delete/${employment.num}|}"
        class="delete btn btn-sm btn-outline-secondary" th:text="삭제">
     </a>	

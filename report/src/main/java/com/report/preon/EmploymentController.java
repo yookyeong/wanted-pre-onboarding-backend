@@ -58,11 +58,28 @@ public class EmploymentController {
 	
 	
 	@GetMapping("/modify/{num}") //id값인 num값으로 호출하기
-	public String employmentModify(EmploymentForm employmentForm, BindingResult bindingResult, @PathVariable("num") Integer num) {
+	public String employmentModify( EmploymentForm employmentForm,  @PathVariable("num") Integer num) {
 		Employment employment = this.employmentService.getEmployment(num);
-		this.employmentService.modify(employment, employment.getSubject(), employmentForm.getContent(), employmentForm.getEm_position(), employmentForm.getEm_tech(), employmentForm.getSal());
+		employmentForm.setSubject(employment.getSubject());
+		employmentForm.setContent(employment.getContent());
+		employmentForm.setEm_position(employment.getEm_position());
+		employmentForm.setEm_tech(employment.getEm_tech());
+		employmentForm.setSal(employment.getSal());
+		return "employment_form";
+	}
+	
+	@PostMapping("/modify/{num}") 
+	public String employmentModify(@Valid EmploymentForm employmentForm,BindingResult bindingResult,@PathVariable("num") Integer num ) {
+		Employment employment = this.employmentService.getEmployment(num);
+		this.employmentService.modify(employment, employmentForm.getSubject(), employmentForm.getContent(), employmentForm.getEm_position(), employmentForm.getEm_tech(), employmentForm.getSal());
+		
+		
 		return "redirect:/detail/{num}";
 	}
+	
+
+	
+
 	
 	@GetMapping("/delete/{num}")
 	public String emplopmentdelete (@PathVariable("num") Integer num) {
